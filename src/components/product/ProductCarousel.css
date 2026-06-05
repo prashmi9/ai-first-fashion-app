@@ -1,0 +1,67 @@
+.product-carousel-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+  position: relative;
+}
+
+.product-carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.product-carousel-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-primary);
+  border-left: 2px solid var(--color-accent-gold);
+  padding-left: var(--spacing-sm);
+}
+
+.product-carousel-controls {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.carousel-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.carousel-btn:hover {
+  border-color: var(--color-border-gold);
+  color: var(--color-accent-gold-light);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Scrollable track */
+.product-carousel-track {
+  display: flex;
+  gap: var(--spacing-md);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  padding-bottom: var(--spacing-sm);
+  width: 100%;
+}
+
+.product-carousel-track::-webkit-scrollbar {
+  display: none; /* Safari / Chrome */
+}
+
+.carousel-item {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+}

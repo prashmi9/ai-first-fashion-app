@@ -1,0 +1,145 @@
+/* ============================================
+   LUXE — Design System Tokens
+   Luxury Dark Theme with Champagne Gold Accents
+   ============================================ */
+
+:root {
+  /* ── Color Palette ────────────────────────── */
+  
+  /* Backgrounds */
+  --color-bg-primary: #0a0a0f;
+  --color-bg-secondary: #111118;
+  --color-bg-tertiary: #1a1a2e;
+  --color-bg-elevated: #1e1e32;
+  
+  /* Surfaces (glassmorphism) */
+  --color-surface: #1a1a2e;
+  --color-surface-solid: #171722;
+  --color-surface-hover: #2b2b4c;
+  --color-surface-active: #323255;
+  --color-surface-glass: rgba(16, 16, 28, 0.94);
+  
+  /* Accent — Champagne Gold */
+  --color-accent-gold: #d4a574;
+  --color-accent-gold-light: #f1d4a2;
+  --color-accent-gold-dark: #c38b57;
+  --color-accent-gold-muted: rgba(212, 165, 116, 0.22);
+  --color-accent-gold-glow: rgba(212, 165, 116, 0.35);
+  
+  /* Accent — Soft Rose */
+  --color-accent-rose: #d78e95;
+  --color-accent-rose-light: #f0b3b9;
+  --color-accent-rose-muted: rgba(215, 142, 149, 0.22);
+  
+  /* Accent — Cool Violet */
+  --color-accent-violet: #9b8ee3;
+  --color-accent-violet-muted: rgba(155, 142, 227, 0.22);
+  
+  /* Text */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #e0e0e9;
+  --color-text-muted: #d3d5dc;
+  --color-text-accent: var(--color-accent-gold-light);
+  --color-text-inverse: #0a0a0f;
+  
+  /* Borders */
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-light: rgba(255, 255, 255, 0.50);
+  --color-border-gold: rgba(212, 165, 116, 0.35);
+  --color-border-gold-strong: rgba(210, 156, 99, 0.55);
+  
+  /* Status */
+  --color-success: #62c68c;
+  --color-success-muted: rgba(98, 198, 140, 0.18);
+  --color-warning: #f0bf5d;
+  --color-warning-muted: rgba(240, 191, 93, 0.18);
+  --color-error: #ef7d87;
+  --color-error-muted: rgba(239, 125, 135, 0.18);
+  --color-info: #7bb7ff;
+  --color-info-muted: rgba(123, 183, 255, 0.18);
+  
+  /* ── Spacing Scale ───────────────────────── */
+  --spacing-2xs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+  
+  /* ── Border Radius ───────────────────────── */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+  
+  /* ── Shadows ─────────────────────────────── */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 16px 50px rgba(0, 0, 0, 0.6), 0 8px 16px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(212, 165, 116, 0.15), 0 0 60px rgba(212, 165, 116, 0.05);
+  --shadow-glow-strong: 0 0 30px rgba(212, 165, 116, 0.25), 0 0 80px rgba(212, 165, 116, 0.1);
+  --shadow-glow-rose: 0 0 20px rgba(201, 123, 132, 0.15);
+  --shadow-inner: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  
+  /* ── Transitions ─────────────────────────── */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* ── Z-Index Scale ───────────────────────── */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-LUXEl: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+  
+  /* ── Blur ─────────────────────────────────── */
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 24px;
+  --blur-xl: 40px;
+  
+  /* ── Sizing ──────────────────────────────── */
+  --sidebar-width: 420px;
+  --sidebar-width-collapsed: 0px;
+  --header-height: 64px;
+  --max-content-width: 1400px;
+  --input-height: 60px;
+  --input-height-lg: 70px;
+}
+
+/* ── Dark Scrollbar ────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Selection ─────────────────────────────── */
+::selection {
+  background: var(--color-accent-gold-muted);
+  color: var(--color-accent-gold-light);
+}

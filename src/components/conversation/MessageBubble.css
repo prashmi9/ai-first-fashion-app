@@ -1,0 +1,115 @@
+.bubble-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  margin-bottom: var(--spacing-md);
+  padding: 0 var(--spacing-md);
+}
+
+.bubble-container.user {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.bubble-container.ai {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+/* System line */
+.bubble-system-container {
+  align-self: center;
+  margin: var(--spacing-sm) 0;
+  text-align: center;
+}
+
+.bubble-system {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+/* Avatar row */
+.bubble-avatar-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.bubble-container.user .bubble-avatar-row {
+  flex-direction: row-reverse;
+}
+
+.bubble-avatar {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+
+.bubble-avatar.ai {
+  border-color: var(--color-border-gold);
+  color: var(--color-accent-gold-light);
+}
+
+.bubble-sender {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+/* Content Body */
+.bubble-content {
+  padding: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-primary);
+  background: var(--color-surface-glass);
+}
+
+.bubble-content.user {
+  border-bottom-right-radius: var(--radius-xs);
+  border: 1px solid var(--color-border-light);
+  background: rgba(26, 26, 46, 0.4);
+}
+
+.bubble-content.ai {
+  border-bottom-left-radius: var(--radius-xs);
+  border-left: 2px solid var(--color-accent-gold);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.bubble-text {
+  white-space: pre-line;
+}
+
+.bubble-header {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent-gold-light);
+  margin: var(--spacing-sm) 0 var(--spacing-xs) 0;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.bubble-time {
+  font-size: 9px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+  padding: 0 var(--spacing-xs);
+}

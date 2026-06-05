@@ -1,0 +1,59 @@
+.typing-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-glass);
+  border: 1px solid var(--color-border-light);
+  align-self: flex-start;
+  margin-left: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+  animation: fadeIn 0.3s ease both;
+}
+
+.typing-dots {
+  display: flex;
+  gap: 3px;
+}
+
+.typing-dots .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-gold-light);
+  opacity: 0.3;
+}
+
+.typing-dots .dot-1 {
+  animation: dotBounce 1.4s infinite;
+}
+
+.typing-dots .dot-2 {
+  animation: dotBounce 1.4s infinite;
+  animation-delay: 200ms;
+}
+
+.typing-dots .dot-3 {
+  animation: dotBounce 1.4s infinite;
+  animation-delay: 400ms;
+}
+
+.typing-lbl {
+  font-family: var(--font-display);
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+@keyframes dotBounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  40% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,53 @@
+.promo-banner-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-gold);
+  background: linear-gradient(135deg, var(--color-accent-gold-muted) 0%, rgba(20, 20, 31, 0.9) 100%);
+  color: var(--color-text-primary);
+  width: 100%;
+  animation: slideDown 0.5s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.promo-banner-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.promo-sparkle {
+  color: var(--color-accent-gold-light);
+  animation: pulseScale 1.5s ease infinite;
+}
+
+.promo-text {
+  font-size: var(--text-xs);
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.promo-tag {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent-gold-light);
+  letter-spacing: var(--tracking-wider);
+}
+
+.promo-desc {
+  color: var(--color-text-secondary);
+}
+
+.promo-close-btn {
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+  cursor: pointer;
+}
+
+.promo-close-btn:hover {
+  color: var(--color-text-primary);
+}
