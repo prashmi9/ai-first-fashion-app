@@ -18,7 +18,8 @@ export const OutfitBuilder: React.FC<OutfitBuilderProps> = ({
   footwearOptions,
   accessoryOptions
 }) => {
-  const { addToCart, toggleWishlist } = useApp();
+  const { addToCart,  } = useApp();
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const [topIdx, setTopIdx] = useState(0);
   const [bottomIdx, setBottomIdx] = useState(0);
@@ -50,7 +51,14 @@ export const OutfitBuilder: React.FC<OutfitBuilderProps> = ({
       const color = p.colors[0]?.name || 'default';
       addToCart(p, size, color);
     });
-    alert('Capsule outfit added to your shopping wardrobe bag!');
+    
+    // Show success feedback on cart icon
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 2000);
+    
+    // Scroll to top to reveal cart icon
+    const mainStage = document.querySelector<HTMLElement>('.app-stage-pane');
+    mainStage?.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -66,12 +74,20 @@ export const OutfitBuilder: React.FC<OutfitBuilderProps> = ({
         </button>
       </div>
 
+      {showSuccess && (
+        <div className="outfit-success-toast">
+          <div className="success-icon">✓</div>
+          <span className="success-message">Outfit added to cart</span>
+        </div>
+      )}
+
       <div className="outfit-slots">
         {/* Top */}
         {selectedTop && (
           <div className="outfit-slot">
             <span className="slot-lbl">Layer One (Top)</span>
             <div className="slot-item-details">
+              <img src={selectedTop.images[0]} alt={selectedTop.name} className="slot-item-image" />
               <span className="brand">{selectedTop.brand}</span>
               <span className="name">{selectedTop.name}</span>
               <span className="price">{formatPrice(selectedTop.price)}</span>
@@ -87,6 +103,7 @@ export const OutfitBuilder: React.FC<OutfitBuilderProps> = ({
           <div className="outfit-slot">
             <span className="slot-lbl">Foundation (Bottom)</span>
             <div className="slot-item-details">
+              <img src={selectedBottom.images[0]} alt={selectedBottom.name} className="slot-item-image" />
               <span className="brand">{selectedBottom.brand}</span>
               <span className="name">{selectedBottom.name}</span>
               <span className="price">{formatPrice(selectedBottom.price)}</span>
@@ -102,6 +119,7 @@ export const OutfitBuilder: React.FC<OutfitBuilderProps> = ({
           <div className="outfit-slot">
             <span className="slot-lbl">Footwear</span>
             <div className="slot-item-details">
+              <img src={selectedFoot.images[0]} alt={selectedFoot.name} className="slot-item-image" />
               <span className="brand">{selectedFoot.brand}</span>
               <span className="name">{selectedFoot.name}</span>
               <span className="price">{formatPrice(selectedFoot.price)}</span>
@@ -117,6 +135,7 @@ export const OutfitBuilder: React.FC<OutfitBuilderProps> = ({
           <div className="outfit-slot">
             <span className="slot-lbl">Accessory</span>
             <div className="slot-item-details">
+              <img src={selectedAcc.images[0]} alt={selectedAcc.name} className="slot-item-image" />
               <span className="brand">{selectedAcc.brand}</span>
               <span className="name">{selectedAcc.name}</span>
               <span className="price">{formatPrice(selectedAcc.price)}</span>

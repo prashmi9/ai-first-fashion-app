@@ -14,7 +14,7 @@ export const promotions: Promotion[] = [
   {
     id: 'promo-winter-warmth',
     title: 'Winter Wardrobe Event',
-    description: 'Get £50 off high-end outerwear when you spend over £250.',
+    description: 'Get €50 off high-end outerwear when you spend over €250.',
     discountType: 'fixed',
     discountValue: 50,
     code: 'WARMTH50',

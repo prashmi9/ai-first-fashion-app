@@ -69,7 +69,7 @@ export function generateId(): string {
   return `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
 }
 
-export function formatPrice(amount: number, currency: string = '£'): string {
+export function formatPrice(amount: number, currency: string = '€'): string {
   return `${currency}${amount.toFixed(2)}`;
 }
 

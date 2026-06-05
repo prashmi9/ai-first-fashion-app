@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Product } from '../../types/product';
 import { Badge } from '../shared/Badge';
 import { formatPrice } from '../../types/common';
@@ -14,6 +14,7 @@ interface ProductCardProps {
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
   const { addToCart, toggleWishlist, state } = useApp();
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const isWishlisted = state.wishlist.some(item => item.product.id === product.id);
 
@@ -104,20 +105,30 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) =
 
         {/* Add to Cart quick CTA */}
         {product.inStock && (
-          <button
-            type="button"
-            className="product-quick-add"
-            onClick={(e) => {
-              e.stopPropagation();
-              const size = product.sizes.find(s => s.inStock)?.value || 's';
-              const color = product.colors[0]?.name || 'default';
-              addToCart(product, size, color);
-            }}
-            aria-label={`Add ${product.name} to cart`}
-          >
-            <ShoppingBag size={14} />
-            <span>Buy</span>
-          </button>
+          <div className="product-add-to-cart-container">
+            <button
+              type="button"
+              className="product-quick-add"
+              onClick={(e) => {
+                e.stopPropagation();
+                const size = product.sizes.find(s => s.inStock)?.value || 's';
+                const color = product.colors[0]?.name || 'default';
+                addToCart(product, size, color);
+                setShowSuccess(true);
+                setTimeout(() => setShowSuccess(false), 2000);
+              }}
+              aria-label={`Add ${product.name} to cart`}
+            >
+              <ShoppingBag size={14} />
+              <span>Buy</span>
+            </button>
+            {showSuccess && (
+              <div className="product-success-toast">
+                <span className="success-checkmark">✓</span>
+                <span>Added to cart</span>
+              </div>
+            )}
+          </div>
         )}
       </div>
     </article>

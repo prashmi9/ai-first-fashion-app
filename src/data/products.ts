@@ -10,7 +10,7 @@ export const products: Product[] = [
     subcategory: 'Coats',
     price: 245.00,
     originalPrice: 295.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'S', value: 's', inStock: true },
       { label: 'M', value: 'm', inStock: true },
@@ -24,13 +24,13 @@ export const products: Product[] = [
     images: ['/src/assets/products-img/Nordic-Parka.jpg'],
     description: 'Heavyweight down parka designed to withstand temperatures down to -25°C. Features a water-resistant shell and deep utility pockets.',
     material: '85% Polyester, 15% Down Fill',
-    seasons: ['winter', 'autumn'],
-    occasions: ['outdoor', 'holiday'],
+    seasons: ['winter',],
+    occasions: ['outdoor', 'casual',],
     gender: 'unisex',
     rating: 4.8,
     reviewCount: 142,
     inStock: true,
-    tags: ['heavyweight', 'down', 'waterproof', 'warm'],
+    tags: ['heavyweight', 'down', 'waterproof'],
     isBestseller: true
   },
   {
@@ -40,7 +40,7 @@ export const products: Product[] = [
     category: 'Outerwear',
     subcategory: 'Coats',
     price: 180.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'XS', value: 'xs', inStock: true },
       { label: 'S', value: 's', inStock: true },
@@ -54,8 +54,8 @@ export const products: Product[] = [
     images: ['/src/assets/products-img/stowe-puffer-jacket.jpeg'],
     description: 'Ultra-lightweight yet incredibly warm packable puffer jacket. Made from recycled nylon with synthetic thermal filling.',
     material: '100% Recycled Nylon',
-    seasons: ['winter', 'autumn', 'spring'],
-    occasions: ['casual', 'holiday'],
+    seasons: ['winter', ],
+    occasions: ['casual', 'outdoor',],
     gender: 'women',
     rating: 4.6,
     reviewCount: 88,
@@ -70,7 +70,7 @@ export const products: Product[] = [
     category: 'Outerwear',
     subcategory: 'Coats',
     price: 320.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'S', value: 's', inStock: true },
       { label: 'M', value: 'm', inStock: true },
@@ -83,7 +83,7 @@ export const products: Product[] = [
     images: ['/src/assets/products-img/Classic-trench.jpg'],
     description: 'A timeless silhouette made with rain-repellent gabardine. Features horn buttons, a buckled belt, and heritage storm flaps.',
     material: '100% Cotton Gabardine',
-    seasons: ['autumn', 'spring'],
+    seasons: ['autumn', ],
     occasions: ['formal', 'business'],
     gender: 'women',
     rating: 4.9,
@@ -98,7 +98,7 @@ export const products: Product[] = [
     category: 'Outerwear',
     subcategory: 'Coats',
     price: 275.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'S', value: 's', inStock: true },
       { label: 'M', value: 'm', inStock: true },
@@ -111,7 +111,7 @@ export const products: Product[] = [
     images: ['/src/assets/products-img/suede-jacket.jpg'],
     description: 'Supple goat suede jacket with silver-tone asymmetrical zip hardware and adjustable belt. Soft satin inner lining.',
     material: '100% Goat Suede',
-    seasons: ['autumn', 'spring'],
+    seasons: ['autumn',],
     occasions: ['casual', 'evening'],
     gender: 'men',
     rating: 4.7,
@@ -127,7 +127,7 @@ export const products: Product[] = [
     subcategory: 'Coats',
     price: 450.00,
     originalPrice: 495.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'M', value: 'm', inStock: true },
       { label: 'L', value: 'l', inStock: true },
@@ -140,7 +140,7 @@ export const products: Product[] = [
     description: 'An outstanding luxury coat featuring genuine sheep shearling lining. Extremely insulated and structured for cold winter months.',
     material: '100% Sheepskin Leather & Shearling',
     seasons: ['winter'],
-    occasions: ['casual', 'evening', 'holiday'],
+    occasions: ['casual', 'evening', 'outdoor'],
     gender: 'unisex',
     rating: 4.9,
     reviewCount: 22,
@@ -157,7 +157,7 @@ export const products: Product[] = [
     category: 'Knitwear',
     subcategory: 'Sweaters',
     price: 85.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'S', value: 's', inStock: true },
       { label: 'M', value: 'm', inStock: true },
@@ -172,7 +172,7 @@ export const products: Product[] = [
     images: ['/src/assets/products-img/wool-turtle-neck.jpeg'],
     description: 'Finely spun extra-fine Merino wool sweater. Exceptionally soft and temperature-regulating, perfect for layering.',
     material: '100% Merino Wool',
-    seasons: ['winter', 'autumn', 'spring'],
+    seasons: ['winter',],
     occasions: ['business', 'casual', 'formal'],
     gender: 'men',
     rating: 4.5,
@@ -187,7 +187,7 @@ export const products: Product[] = [
     category: 'Knitwear',
     subcategory: 'Sweaters',
     price: 185.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'XS', value: 'xs', inStock: true },
       { label: 'S', value: 's', inStock: true },
@@ -201,7 +201,7 @@ export const products: Product[] = [
     images: ['/src/assets/products-img/cashmere-crew-neck.webp'],
     description: 'Luxurious grade-A cashmere knit with a relaxed oversized fit, dropped shoulders, and chunky ribbed trims.',
     material: '100% Cashmere',
-    seasons: ['winter', 'autumn'],
+    seasons: ['winter',],
     occasions: ['casual', 'holiday'],
     gender: 'women',
     rating: 4.8,
@@ -217,7 +217,7 @@ export const products: Product[] = [
     category: 'Knitwear',
     subcategory: 'Sweaters',
     price: 95.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'S', value: 's', inStock: true },
       { label: 'M', value: 'm', inStock: true },
@@ -230,7 +230,7 @@ export const products: Product[] = [
     images: ['/src/assets/products-img/cable-knit-mock-neck.jpeg'],
     description: 'Chunky traditional fisherman-style cable knit sweater with an elegant mock collar for extra wind protection.',
     material: '80% Wool, 20% Alpaca',
-    seasons: ['winter', 'autumn'],
+    seasons: ['winter', ],
     occasions: ['outdoor', 'casual'],
     gender: 'unisex',
     rating: 4.7,
@@ -247,7 +247,7 @@ export const products: Product[] = [
     category: 'Dresses',
     subcategory: 'Evening',
     price: 110.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'XS', value: 'xs', inStock: true },
       { label: 'S', value: 's', inStock: true },
@@ -277,7 +277,7 @@ export const products: Product[] = [
     subcategory: 'Casual',
     price: 125.00,
     originalPrice: 150.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'S', value: 's', inStock: true },
       { label: 'M', value: 'm', inStock: true },
@@ -306,7 +306,7 @@ export const products: Product[] = [
     category: 'Dresses',
     subcategory: 'Evening',
     price: 395.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'XS', value: 'xs', inStock: true },
       { label: 'S', value: 's', inStock: true },
@@ -316,7 +316,7 @@ export const products: Product[] = [
       { name: 'Royal Gold', hex: '#d4a574' },
       { name: 'Champagne Pearl', hex: '#f5efe6' }
     ],
-    images: ['/src/assets/products-img/silk-evening-gown.jpeg'],
+    images: ['/src/assets/products-img/silk-evening-gown.jpg'],
     description: 'Exquisite heavy-weight mulberry silk evening dress with a draped cowl neckline and a sweep train.',
     material: '100% Mulberry Silk',
     seasons: ['summer', 'spring', 'autumn'],
@@ -328,6 +328,64 @@ export const products: Product[] = [
     tags: ['silk', 'luxurious', 'gown', 'draped'],
     isNew: true
   },
+  {
+    id: 'dress-4',
+    name: 'Summer Blue Geometric Dress',
+    brand: 'Maison Laurent',
+    category: 'Dresses',
+    subcategory: 'Day',
+    price: 195.00,
+    currency: '€',
+    sizes: [
+      { label: 'XS', value: 'xs', inStock: true },
+      { label: 'S', value: 's', inStock: true },
+      { label: 'M', value: 'm', inStock: true }
+    ],
+    colors: [
+      { name: 'White Cotton', hex: '#fcfcfc' },
+      { name: 'Blue', hex: '#7e7ebe' }
+    ],
+    images: ['/src/assets/products-img/summer-dress.webp'],
+    description: 'Exquisite cotton dress with a relaxed fit and a flattering silhouette.',
+    material: '100% Cotton',
+    seasons: ['summer', 'spring', 'autumn'],
+    occasions: ['holiday', 'casual', 'business'],
+    gender: 'women',
+    rating: 4.9,
+    reviewCount: 18,
+    inStock: true,
+    tags: ['cotton', 'relaxed', 'flattering'],
+    isNew: true
+  },
+  {
+    id: 'dress-5',
+    name: 'Summer Vertical Line Dress',
+    brand: 'Maison Laurent',
+    category: 'Dresses',
+    subcategory: 'Day',
+    price: 105.00,
+    currency: '€',
+    sizes: [
+      { label: 'XS', value: 'xs', inStock: true },
+      { label: 'S', value: 's', inStock: true },
+      { label: 'M', value: 'm', inStock: true }
+    ],
+    colors: [
+      { name: 'White Cotton', hex: '#fcfcfc' },
+      { name: 'Blue', hex: '#7e7ebe' }
+    ],
+    images: ['/src/assets/products-img/summer-dress2.webp'],
+    description: 'Exquisite cotton dress with a relaxed fit and a flattering silhouette.',
+    material: '100% Cotton',
+    seasons: ['summer', 'spring', 'autumn'],
+    occasions: ['formal', 'holiday', 'business'],
+    gender: 'women',
+    rating: 4.9,
+    reviewCount: 18,
+    inStock: true,
+    tags: ['cotton', 'relaxed', 'flattering'],
+    isNew: true
+  },
 
   // TOPS & SHIRTS (25-32)
   {
@@ -337,7 +395,7 @@ export const products: Product[] = [
     category: 'Tops',
     subcategory: 'Shirts',
     price: 65.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'S', value: 's', inStock: true },
       { label: 'M', value: 'm', inStock: true },
@@ -352,7 +410,7 @@ export const products: Product[] = [
     description: 'Crisp oxford cotton shirt with button-down collar and tailored chest pocket. Pre-shrunk and easy to iron.',
     material: '100% Egyptian Cotton',
     seasons: ['spring', 'summer', 'autumn', 'winter'],
-    occasions: ['business', 'casual'],
+    occasions: [ 'casual'],
     gender: 'men',
     rating: 4.6,
     reviewCount: 130,
@@ -366,7 +424,7 @@ export const products: Product[] = [
     category: 'Tops',
     subcategory: 'Shirts',
     price: 135.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'XS', value: 'xs', inStock: true },
       { label: 'S', value: 's', inStock: true },
@@ -377,7 +435,7 @@ export const products: Product[] = [
       { name: 'Ivory Cream', hex: '#fefefe' },
       { name: 'Blush Pink', hex: '#fbcfe8' }
     ],
-    images: ['/src/assets/products-img/silk-utility-blouse.jpeg'],
+    images: ['/src/assets/products-img/silky-utility-blouse.jpeg'],
     description: 'A luxurious crepe de chine silk blouse featuring front button closures, two flap pockets, and button-cuff long sleeves.',
     material: '100% Silk Crepe',
     seasons: ['spring', 'autumn', 'summer'],
@@ -397,7 +455,7 @@ export const products: Product[] = [
     category: 'Bottoms',
     subcategory: 'Trousers',
     price: 120.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: '30W', value: '30', inStock: true },
       { label: '32W', value: '32', inStock: true },
@@ -426,7 +484,7 @@ export const products: Product[] = [
     category: 'Bottoms',
     subcategory: 'Trousers',
     price: 90.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'XS', value: 'xs', inStock: true },
       { label: 'S', value: 's', inStock: true },
@@ -449,6 +507,36 @@ export const products: Product[] = [
     tags: ['pleated', 'high-waisted', 'tencel'],
     isBestseller: true
   },
+  {
+    id: 'bottom-3',
+    name: 'Wide-Leg Linen trouser',
+    brand: 'Velvet & Stone',
+    category: 'Bottoms',
+    subcategory: 'Trousers',
+    price: 90.00,
+    currency: '€',
+    sizes: [
+      { label: 'XS', value: 'xs', inStock: true },
+      { label: 'S', value: 's', inStock: true },
+      { label: 'M', value: 'm', inStock: true },
+      { label: 'L', value: 'l', inStock: true }
+    ],
+    colors: [
+      { name: 'Earthy Sand', hex: '#dcd0c0' },
+      { name: 'Deep Sage', hex: '#526e5b' }
+    ],
+    images: ['/src/assets/products-img/wide-leg-linen-trousers.webp'],
+    description: 'High-waisted wide-leg trousers featuring dramatic front pleats, slant side pockets, and an elasticated back waist for comfort.',
+    material: '70% Tencel, 30% Linen',
+    seasons: [ 'summer'],
+    occasions: [ 'business', 'casual',],
+    gender: 'women',
+    rating: 4.5,
+    reviewCount: 92,
+    inStock: true,
+    tags: ['pleated', 'high-waisted', 'tencel'],
+    isBestseller: true
+  },
 
   // FOOTWEAR (41-48)
   {
@@ -459,7 +547,7 @@ export const products: Product[] = [
     subcategory: 'Boots',
     price: 160.00,
     originalPrice: 195.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'EU 40', value: '40', inStock: true },
       { label: 'EU 41', value: '41', inStock: true },
@@ -490,7 +578,7 @@ export const products: Product[] = [
     category: 'Footwear',
     subcategory: 'Boots',
     price: 130.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'EU 37', value: '37', inStock: true },
       { label: 'EU 38', value: '38', inStock: true },
@@ -523,7 +611,7 @@ export const products: Product[] = [
     category: 'Accessories',
     subcategory: 'Scarves',
     price: 75.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'One Size', value: 'os', inStock: true }
     ],
@@ -550,7 +638,7 @@ export const products: Product[] = [
     category: 'Accessories',
     subcategory: 'Bags',
     price: 260.00,
-    currency: '£',
+    currency: '€',
     sizes: [
       { label: 'One Size', value: 'os', inStock: true }
     ],

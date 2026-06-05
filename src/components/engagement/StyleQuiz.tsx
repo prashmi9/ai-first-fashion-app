@@ -4,7 +4,7 @@ import { Sparkles, ArrowRight, ArrowLeft } from 'lucide-react';
 import './StyleQuiz.css';
 
 export const StyleQuiz: React.FC = () => {
-  const { state, dispatch } = useApp();
+  const { state, dispatch, sendMessage } = useApp();
   const [step, setStep] = useState(1);
   const [selections, setSelections] = useState({
     style: 'Minimalist',
@@ -36,7 +36,7 @@ export const StyleQuiz: React.FC = () => {
       type: 'UPDATE_PREFERENCES',
       payload: {
         favoriteColors: [selections.color],
-        favoriteBrands: ['Maison Laurent', 'Velvet & Stone'],
+        favoriteBrands: [],
         preferredStyles: [selections.style],
         avoidStyles: ['Sporty'],
         priceRange: { min: 50, max: selections.budget }
@@ -49,10 +49,13 @@ export const StyleQuiz: React.FC = () => {
       payload: {
         id: `msg-quiz-${Date.now()}`,
         role: 'assistant',
-        content: `### 🎯 Style Profile Calibrated!\n\nThank you for completing your styling assessment, ${state.user.name.split(' ')[0]}! \n\n* **Style Direction:** ${selections.style}\n* **Fav Color Palette:** HSL Custom Swatch\n* **Target Price Range:** £50 - £${selections.budget}\n\nI've refreshed your LUXE styling engine. Try asking: **"Show outfits under £${selections.budget}"** or **"Suggest everyday pieces matching my new style"**!`,
+        content: `### 🎯 Style Profile Calibrated!\n\nThank you for completing your styling assessment, ${state.user.name.split(' ')[0]}! \n\n* **Style Direction:** ${selections.style}\n* **Fav Color Palette:** HSL Custom Swatch\n* **Target Price Range:** €50 - €${selections.budget}\n\nI've refreshed your LUXE styling engine. Try asking: **"Show outfits under €${selections.budget}"** or **"Suggest everyday pieces matching my new style"**!`,
         timestamp: new Date()
       }
     });
+
+    // Trigger product fetching based on new style preferences
+    sendMessage(`Show me ${selections.style} pieces under €${selections.budget}`);
   };
 
   return (
@@ -113,7 +116,7 @@ export const StyleQuiz: React.FC = () => {
                 onChange={(e) => setSelections({ ...selections, budget: parseInt(e.target.value, 10) })}
                 className="quiz-range-slider"
               />
-              <div className="quiz-budget-val">£{selections.budget} max</div>
+              <div className="quiz-budget-val">€{selections.budget} max</div>
             </div>
           </div>
         )}

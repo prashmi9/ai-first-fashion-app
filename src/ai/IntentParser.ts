@@ -31,6 +31,9 @@ export class IntentParser {
     } else if (text.includes('checkout') || text.includes('buy') || text.includes('purchase')) {
       intent = 'checkout';
       confidence = 0.85;
+    } else if (text.includes('outfit') || text.includes('build an outfit') || text.includes('look') || text.includes('style a look') || text.includes('wardrobe')) {
+      intent = 'outfit';
+      confidence = 0.9;
     } else if (text.includes('quiz') || text.includes('style profile') || text.includes('questions')) {
       intent = 'quiz';
       confidence = 0.95;
@@ -75,12 +78,12 @@ export class IntentParser {
       season = 'spring';
     }
 
-    // Budget extraction (e.g. £500, under 100, budget is 250)
+    // Budget extraction (e.g. €500, under 100, budget is 250)
     let budget: number | undefined;
     const priceRegexes = [
-      /[£$]?\b(\d+)\b\s*(gbp|pounds|budget)?/i,
-      /under\s*[£$]?\b(\d+)\b/i,
-      /budget\s*(?:is|of)?\s*[£$]?\b(\d+)\b/i
+      /[€$]?\b(\d+)\b\s*(euro|budget)?/i,
+      /under\s*[€$]?\b(\d+)\b/i,
+      /budget\s*(?:is|of)?\s*[€$]?\b(\d+)\b/i
     ];
 
     for (const regex of priceRegexes) {
@@ -96,7 +99,7 @@ export class IntentParser {
 
     // Location extraction
     let location: string | undefined;
-    const locations = ['finland', 'iceland', 'norway', 'maldives', 'paris', 'london', 'oslo', 'reykjavik'];
+    const locations = ['finland', 'iceland', 'norway', 'spain', 'paris', 'london', 'oslo', 'reykjavik'];
     for (const loc of locations) {
       if (text.includes(loc)) {
         location = loc;

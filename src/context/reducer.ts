@@ -20,6 +20,7 @@ export interface AppState {
   wishlist: WishlistItem[];
   activeComponents: ComponentInstance[];
   theme: 'dark' | 'light';
+  orderConfirmed: boolean;
 }
 
 export type AppAction =
@@ -33,7 +34,8 @@ export type AppAction =
   | { type: 'TOGGLE_WISHLIST'; payload: Product }
   | { type: 'CLEAR_CART' }
   | { type: 'SET_THEME'; payload: 'dark' | 'light' }
-  | { type: 'UPDATE_PREFERENCES'; payload: StylePreferences };
+  | { type: 'UPDATE_PREFERENCES'; payload: StylePreferences }
+  | { type: 'SET_ORDER_CONFIRMED'; payload: boolean };
 
 export function appReducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
@@ -155,6 +157,12 @@ export function appReducer(state: AppState, action: AppAction): AppState {
           ...state.user,
           preferences: action.payload
         }
+      };
+
+    case 'SET_ORDER_CONFIRMED':
+      return {
+        ...state,
+        orderConfirmed: action.payload
       };
 
     default:

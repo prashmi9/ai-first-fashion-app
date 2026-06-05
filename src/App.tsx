@@ -3,8 +3,6 @@ import { AppProvider, useApp } from './context/AppContext';
 import { AppShell } from './components/layout/AppShell';
 import { ChatPanel } from './components/conversation/ChatPanel';
 import { MainStage } from './components/layout/MainStage';
-import { ShoppingCart } from './components/commerce/ShoppingCart';
-import { CheckoutSummary } from './components/commerce/CheckoutSummary';
 
 const MainAppContent: React.FC = () => {
   const { state, sendMessage } = useApp();

@@ -34,9 +34,9 @@ export const ShoppingCart: React.FC = () => {
       <div className="cart-layout">
         {/* Cart items list */}
         <div className="cart-items">
-          {state.cart.map((item, idx) => (
+          {state.cart.map((item) => (
             <div key={`${item.product.id}-${item.selectedSize}-${item.selectedColor}`} className="cart-item">
-              <div className="cart-item-img-placeholder" style={{ background: `linear-gradient(135deg, #1e1b4b 0%, #09090b 100%)` }}>
+              <div className="cart-item-img-placeholder" style={{ backgroundImage: `url(${item.product.images[0]})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <span className="initials">{item.product.brand[0]}</span>
               </div>
 

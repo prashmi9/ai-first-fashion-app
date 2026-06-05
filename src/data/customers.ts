@@ -11,10 +11,10 @@ export const defaultCustomer: Customer = {
     memberSince: '2024-03-12'
   },
   preferences: {
-    favoriteColors: ['#f8fafc', '#e2d6c5', '#0f172a', '#064e3b'], // ivory, oatmeal, navy/midnight, emerald
+    favoriteColors: ['#fefefe', '#e2d6c5',  '#064e3b', '#fcfcfc'], // ivory, oatmeal, navy/midnight, emerald
     favoriteBrands: ['Maison Laurent', 'Velvet & Stone'],
-    preferredStyles: ['Minimalist', 'Classic', 'Bohemian'],
-    avoidStyles: ['Sporty', 'Streetwear'],
+    preferredStyles: ['Business', 'Classic', 'Streetwear'],
+    avoidStyles: ['Sporty', 'Bohemian'],
     priceRange: { min: 50, max: 350 }
   },
   sizes: {
@@ -41,7 +41,7 @@ export const defaultCustomer: Customer = {
         }
       ],
       total: 135.00,
-      currency: '£',
+      currency: '€',
       status: 'delivered',
       trackingNumber: 'LUXE-9821-GB',
       estimatedDelivery: '2026-04-12'
@@ -62,7 +62,7 @@ export const defaultCustomer: Customer = {
         }
       ],
       total: 275.00,
-      currency: '£',
+      currency: '€',
       status: 'delivered',
       trackingNumber: 'LUXE-9104-GB',
       estimatedDelivery: '2024-03-22'
@@ -83,7 +83,7 @@ export const defaultCustomer: Customer = {
         }
       ],
       total: 75.00,
-      currency: '£',
+      currency: '€',
       status: 'returned',
       trackingNumber: 'LUXE-8104-GB',
       estimatedDelivery: '2025-11-22'

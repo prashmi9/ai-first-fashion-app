@@ -11,10 +11,10 @@ interface SuggestionChipsProps {
 export const SuggestionChips: React.FC<SuggestionChipsProps> = ({ suggestions, onSelect }) => {
   const getIcon = (label: string) => {
     const l = label.toLowerCase();
-    if (l.includes('trip') || l.includes('finland') || l.includes('weather') || l.includes('maldives') || l.includes('sun')) {
+    if (l.includes('trip') || l.includes('finland') || l.includes('weather') || l.includes('business') || l.includes('sun')) {
       return <Sun size={10} className="chip-icon-active" />;
     }
-    if (l.includes('trip') || l.includes('norway') || l.includes('weather') || l.includes('maldives') || l.includes('sun')) {
+    if (l.includes('trip') || l.includes('norway') || l.includes('weather') || l.includes('winter') || l.includes('cloudy')) {
       return <Sun size={10} className="chip-icon-active" />;
     }
     if (l.includes('promo') || l.includes('discount') || l.includes('offer') || l.includes('sale')) {

@@ -22,25 +22,26 @@ const initialState: AppState = {
         content: `Welcome to LUXE, your personal AI Fashion Stylist. I've analyzed your profile and sizes. Are you styling for an upcoming conference trip (like Finland), shopping for a warm getaway, or looking to build a modular outfit? Let me know!`,
         timestamp: new Date(),
         suggestedActions: [
-          { id: 'sa-1', label: '🇳🇴 Trip to Finland', prompt: 'I need outfits for a summer trip to Finland.' },
-          { id: 'sa-2', label: '🇲🇻 Maldives Holiday', prompt: 'Show me beach holiday items for Maldives.' },
-          { id: 'sa-3', label: '👔 Modular Outfit Builder', prompt: 'Help me build an outfit.' },
-          { id: 'sa-4', label: '📦 Track Recent Orders', prompt: 'Show my orders' }
+          { id: 'sa-1', label: 'Trip to Finland', prompt: 'I need styling for a summer trip to Finland.' },
+          { id: 'sa-2', label: 'Spain Holiday', prompt: 'Show me beach holiday items for Spain.' },
+          { id: 'sa-3', label: 'Modular Outfit Builder', prompt: 'Help me build an outfit.' },
+          { id: 'sa-4', label: 'Track Recent Orders', prompt: 'Show my orders' }
         ]
       }
     ],
     isProcessing: false,
     suggestedActions: [
-      { id: 'sa-1', label: '🇳🇴 Trip to Finland', prompt: 'I need outfits for a summer trip to Finland.' },
-      { id: 'sa-2', label: '🇲🇻 Maldives Holiday', prompt: 'Show me beach holiday items for Maldives.' },
-      { id: 'sa-3', label: '👔 Modular Outfit Builder', prompt: 'Help me build an outfit.' },
-      { id: 'sa-4', label: '📦 Track Recent Orders', prompt: 'Show my orders' }
+      { id: 'sa-1', label: 'Trip to Finland', prompt: 'I need styling for a summer trip to Finland.' },
+      { id: 'sa-2', label: 'Spain Holiday', prompt: 'Show me beach holiday items for Spain.' },
+      { id: 'sa-3', label: 'Modular Outfit Builder', prompt: 'Help me build an outfit.' },
+      { id: 'sa-4', label: 'Track Recent Orders', prompt: 'Show my orders' }
     ]
   },
   cart: [],
   wishlist: [],
   activeComponents: [],
-  theme: 'dark'
+  theme: 'dark',
+  orderConfirmed: false
 };
 
 interface AppContextType {
@@ -48,6 +49,7 @@ interface AppContextType {
   dispatch: React.Dispatch<AppAction>;
   sendMessage: (text: string) => Promise<void>;
   addToCart: (product: Product, size: string, color: string) => void;
+  setOrderConfirmed: (confirmed: boolean) => void;
   removeFromCart: (productId: string, size: string, color: string) => void;
   updateCartQuantity: (productId: string, size: string, color: string, quantity: number) => void;
   toggleWishlist: (product: Product) => void;
@@ -76,7 +78,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     try {
       // Process through LLM Orchestrator
-      const response = await LLMOrchestrator.processInput(text);
+      const response = await LLMOrchestrator.processInput(text, state.orderConfirmed);
 
       const aiMsgId = `msg-ai-${generateId().substring(0, 4)}`;
       dispatch({
@@ -133,6 +135,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     dispatch({ type: 'CLEAR_CART' });
   };
 
+  const setOrderConfirmed = (confirmed: boolean) => {
+    dispatch({ type: 'SET_ORDER_CONFIRMED', payload: confirmed });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -143,7 +149,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         removeFromCart,
         updateCartQuantity,
         toggleWishlist,
-        clearCart
+        clearCart,
+        setOrderConfirmed
       }}
     >
       {children}

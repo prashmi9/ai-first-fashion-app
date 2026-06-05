@@ -7,7 +7,8 @@ export class ComponentSelector {
   public static selectComponents(
     intent: string,
     context: EnrichedContext,
-    toolData: Record<string, any>
+    toolData: Record<string, any>,
+    orderConfirmed: boolean = false
   ): ComponentInstance[] {
     const components: ComponentInstance[] = [];
 
@@ -25,20 +26,20 @@ export class ComponentSelector {
       ];
     }
 
+    // Checkout Summary should appear before the shopping bag when checking out
+    if (intent === 'checkout') {
+      components.push({
+        id: `comp-checkout-${generateId().substring(0, 4)}`,
+        type: 'CheckoutSummary',
+        props: {}
+      });
+    }
+
     // Shopping cart (should appear before products)
     if (intent === 'cart' || intent === 'checkout') {
       components.push({
         id: `comp-cart-${generateId().substring(0, 4)}`,
         type: 'ShoppingCart',
-        props: {}
-      });
-    }
-
-    // Checkout Summary (should appear before products)
-    if (intent === 'checkout') {
-      components.push({
-        id: `comp-checkout-${generateId().substring(0, 4)}`,
-        type: 'CheckoutSummary',
         props: {}
       });
     }
@@ -62,7 +63,8 @@ export class ComponentSelector {
     }
 
     // Weather widget should be included if weather data is queried or active location is present
-    if (context.activeLocation && toolData.weather) {
+    // BUT NOT if an order has been confirmed or user is in cart/checkout
+    if (!orderConfirmed && intent !== 'cart' && intent !== 'checkout' && context.activeLocation && toolData.weather) {
       components.push({
         id: `comp-weather-${generateId().substring(0, 4)}`,
         type: 'WeatherWidget',
@@ -70,8 +72,37 @@ export class ComponentSelector {
       });
     }
 
+    // Outfit builder (mix and match)
+    if (
+      intent === 'outfit' &&
+      (
+        (Array.isArray(toolData.products) && toolData.products.length > 0) ||
+        Array.isArray(toolData.fallbackTops) ||
+        Array.isArray(toolData.fallbackBottoms) ||
+        Array.isArray(toolData.fallbackFootwear) ||
+        Array.isArray(toolData.fallbackAccessories)
+      )
+    ) {
+      const products = Array.isArray(toolData.products) ? toolData.products : [];
+      const tops = products.filter((p: any) => p.category === 'Tops' || p.category === 'Knitwear');
+      const bottoms = products.filter((p: any) => p.category === 'Bottoms');
+      const foot = products.filter((p: any) => p.category === 'Footwear');
+      const acc = products.filter((p: any) => p.category === 'Accessories');
+
+      components.push({
+        id: `comp-outfit-${generateId().substring(0, 4)}`,
+        type: 'OutfitBuilder',
+        props: {
+          topOptions: tops.length > 0 ? tops : toolData.fallbackTops || [],
+          bottomOptions: bottoms.length > 0 ? bottoms : toolData.fallbackBottoms || [],
+          footwearOptions: foot.length > 0 ? foot : toolData.fallbackFootwear || [],
+          accessoryOptions: acc.length > 0 ? acc : toolData.fallbackAccessories || []
+        }
+      });
+    }
+
     // Main listing component (either ProductGrid or ProductCarousel)
-    if (toolData.products && toolData.products.length > 0) {
+    if (!orderConfirmed && intent !== 'cart' && intent !== 'checkout' && toolData.products && toolData.products.length > 0) {
       const isGridPreferred = intent === 'search' || toolData.products.length > 4;
       components.push({
         id: `comp-products-${generateId().substring(0, 4)}`,
@@ -84,7 +115,8 @@ export class ComponentSelector {
     }
 
     // Recommendation card (AI-curated spotlight item)
-    if (toolData.products && toolData.products.length > 0 && (intent === 'search' || context.activeLocation)) {
+    // NOT rendered if an order has been confirmed or user is in cart/checkout
+    if (!orderConfirmed && intent !== 'cart' && intent !== 'checkout' && toolData.products && toolData.products.length > 0 && (intent === 'search' || context.activeLocation)) {
       const topMatch = toolData.products[0];
       components.push({
         id: `comp-rec-${generateId().substring(0, 4)}`,
@@ -93,25 +125,6 @@ export class ComponentSelector {
           product: topMatch,
           matchScore: 95,
           reasoning: this.getRecommendationReasoning(topMatch, context)
-        }
-      });
-    }
-
-    // Outfit builder (mix and match)
-    if (intent === 'outfit' && toolData.products) {
-      const tops = toolData.products.filter((p: any) => p.category === 'Tops' || p.category === 'Knitwear');
-      const bottoms = toolData.products.filter((p: any) => p.category === 'Bottoms');
-      const foot = toolData.products.filter((p: any) => p.category === 'Footwear');
-      const acc = toolData.products.filter((p: any) => p.category === 'Accessories');
-
-      components.push({
-        id: `comp-outfit-${generateId().substring(0, 4)}`,
-        type: 'OutfitBuilder',
-        props: {
-          topOptions: tops.length > 0 ? tops : toolData.fallbackTops || [],
-          bottomOptions: bottoms.length > 0 ? bottoms : toolData.fallbackBottoms || [],
-          footwearOptions: foot.length > 0 ? foot : toolData.fallbackFootwear || [],
-          accessoryOptions: acc.length > 0 ? acc : toolData.fallbackAccessories || []
         }
       });
     }

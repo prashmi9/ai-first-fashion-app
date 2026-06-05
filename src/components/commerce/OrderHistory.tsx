@@ -10,8 +10,8 @@ const getStatusColor = (status: string): string => {
   const statusColors: Record<string, string> = {
     processing: '#bca171',
     shipped: '#7c99c9',
-    delivered: '#78b19e',
-    returned: '#ea7979',
+    delivered: '#306151',
+    returned: '#af6262',
     cancelled: '#6b7280'
   };
   return statusColors[status] || '#6b7280';
@@ -54,11 +54,14 @@ export const OrderHistory: React.FC<OrderHistoryProps> = ({ orders }) => {
                   })}
                 </span>
               </div>
-              <div
-                className="order-status"
-                style={{ backgroundColor: getStatusColor(order.status) }}
-              >
-                {getStatusLabel(order.status)}
+              <div>
+                <h3 className="order-id">Status: </h3>
+                <div
+                  className="order-status"
+                  style={{ backgroundColor: getStatusColor(order.status) }}
+                >
+                  {getStatusLabel(order.status)}
+                </div>
               </div>
             </div>
 

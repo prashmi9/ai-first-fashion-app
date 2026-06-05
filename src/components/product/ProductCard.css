@@ -172,3 +172,54 @@
   color: var(--color-text-inverse);
   box-shadow: var(--shadow-glow);
 }
+
+/* Add to Cart Container */
+.product-add-to-cart-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Success Toast */
+.product-success-toast {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  background: rgba(26, 58, 40, 0.95);
+  border: 1px solid var(--color-success);
+  border-radius: var(--radius-sm);
+  animation: slideUp 0.3s ease both;
+  font-size: var(--text-xs);
+  color: var(--color-text-primary);
+  font-weight: var(--weight-semibold);
+}
+
+.success-checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background: var(--color-success);
+  color: var(--color-text-inverse);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

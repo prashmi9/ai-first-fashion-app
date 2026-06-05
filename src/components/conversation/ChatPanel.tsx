@@ -31,7 +31,7 @@ export const ChatPanel: React.FC = () => {
   const handleVoiceToggle = () => {
     if (isListening) {
       // Mock Speech Recognition Confirmation
-      const spokenText = inputText || 'I need outfits for a Conference to Finland. My budget is £500.';
+      const spokenText = inputText || 'I need outfits for a Conference to Finland. My budget is €500.';
       setIsListening(false);
       setInputText('');
       setTranscript('');
@@ -62,11 +62,11 @@ export const ChatPanel: React.FC = () => {
     dispatch({
       type: 'SET_SUGGESTIONS',
       payload: [
-        { id: 'sa-1', label: '🇳🇴 Trip to Finland', prompt: 'I need outfits for a winter trip to Finland.' },
-        { id: 'sa-2', label: '🇳🇴 Trip to Norway', prompt: 'I need outfits for a winter trip to Norway.' },
-        { id: 'sa-3', label: '🇲🇻 Maldives Holiday', prompt: 'Show me beach holiday items for Maldives.' },
-        { id: 'sa-4', label: '👔 Modular Outfit Builder', prompt: 'Help me build an outfit.' },
-        { id: 'sa-5', label: '📦 Track Recent Orders', prompt: 'Show my orders' }
+        { id: 'sa-1', label: 'Trip to Finland', prompt: 'I need outfits for a winter trip to Finland.' },
+        { id: 'sa-2', label: 'Trip to Norway', prompt: 'I need outfits for a winter trip to Norway.' },
+        { id: 'sa-3', label: 'Spain Holiday', prompt: 'Show me beach holiday items for Spain.' },
+        { id: 'sa-4', label: 'Modular Outfit Builder', prompt: 'Help me build an outfit.' },
+        { id: 'sa-5', label: 'Track Recent Orders', prompt: 'Show my orders' }
       ]
     });
   };

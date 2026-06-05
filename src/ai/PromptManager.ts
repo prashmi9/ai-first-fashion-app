@@ -26,7 +26,7 @@ export class PromptManager {
         return `Let's refine your style preferences! I've loaded our interactive Style Quiz. Tell me about your fits, color likes, and budget, and I'll tailor our recommendations perfectly to you.`;
 
       case 'outfit':
-        return `I've created an exclusive capsule outfit combination for you. It mixes minimalist basics with statement outerwear from our boutique catalog, all matching your budget of £${context.activeBudget || 500}. How does this look?`;
+        return `I've created an exclusive capsule outfit combination for you. It mixes minimalist basics with statement outerwear from our boutique catalog, all matching your budget of €${context.activeBudget || 500}. How does this look?`;
 
       case 'orders':
         if (toolResults.orders && toolResults.orders.length > 0) {

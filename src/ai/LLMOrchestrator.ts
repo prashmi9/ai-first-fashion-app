@@ -14,7 +14,7 @@ export interface LLMResponse {
 }
 
 export class LLMOrchestrator {
-  public static async processInput(input: string): Promise<LLMResponse> {
+  public static async processInput(input: string, orderConfirmed: boolean = false): Promise<LLMResponse> {
     // 1. Simulate cognitive processing latency (500ms - 1000ms)
     await delay(600 + Math.random() * 400);
 
@@ -82,7 +82,7 @@ export class LLMOrchestrator {
     }
 
     // 5. Select whitelisted components
-    const components = ComponentSelector.selectComponents(intentResult.intent, context, toolResults);
+    const components = ComponentSelector.selectComponents(intentResult.intent, context, toolResults, orderConfirmed);
 
     // 6. Generate prompt explanation
     const message = PromptManager.generateResponse(intentResult, context, toolResults);
@@ -102,31 +102,30 @@ export class LLMOrchestrator {
 
     if (intent === 'greet') {
       actions.push(
-        { id: 'sa-1', label: '✈️ Summer trip to Finland', prompt: 'I need clothes for a summer trip to Finland.' },
+        { id: 'sa-1', label: '✈️ Summer trip to Finland', prompt: 'I need clothes for a business trip to Finland.' },
         { id: 'sa-2', label: '✈️ Winter trip to Norway', prompt: 'I need clothes for a winter trip to Norway.' },
-        { id: 'sa-3', label: '☀️ Holiday in Maldives', prompt: 'Show me resort wear for a Maldives holiday.' },
+        { id: 'sa-3', label: '☀️ Holiday in Spain', prompt: 'Show me beach wear for a Spain holiday.' },
         { id: 'sa-4', label: '🛍️ Current Promotions', prompt: 'What promotional discount campaigns are active today?' },
         
       );
     } else if (context.activeLocation) {
       actions.push(
         { id: 'sa-outfit', label: '✨ Design styled outfit capsule', prompt: `Build a complete travel outfit for ${context.activeLocation}` },
-        { id: 'sa-filter', label: '🏷️ Show items under £150', prompt: `Show me items under £150 for this trip` },
+        { id: 'sa-filter', label: '🏷️ Show items under €150', prompt: `Show me items under €150 for this trip` },
         { id: 'sa-orders', label: '📦 Track recent orders', prompt: 'Show my orders' }
       );
     } else {
       actions.push(
-        { id: 'sa-quiz', label: '📝 Style preferences quiz', prompt: 'I want to take the style quiz' },
         { id: 'sa-outfit', label: '👔 Match modular outfit look', prompt: 'Let me build a modular outfit' },
         { id: 'sa-sale', label: '💎 Loyalty member discounts', prompt: 'What member offers are available?' },
         { id: 'sa-orders', label: '📦 Track recent orders', prompt: 'Show my orders' },
       );
     }
 
-    const quizAction = { id: 'sa-quiz', label: '📝 Style preferences quiz', prompt: 'I want to take the style quiz' };
-    if (!actions.some(action => action.id === quizAction.id)) {
-      actions.push(quizAction);
-    }
+    // const quizAction = { id: 'sa-quiz', label: '📝 Style preferences quiz', prompt: 'I want to take the style quiz' };
+    // if (!actions.some(action => action.id === quizAction.id)) {
+    //   actions.push(quizAction);
+    // }
 
     return actions;
   }

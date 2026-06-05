@@ -49,8 +49,8 @@ export const weatherData: Record<string, WeatherData> = {
       { date: 'Fri', high: 2, low: -2, condition: 'partly-cloudy', icon: 'Sun' }
     ]
   },
-  maldives: {
-    location: 'Male, Maldives',
+  spain: {
+    location: 'Barcelona, Spain',
     temperature: 31,
     feelsLike: 36,
     condition: 'sunny',

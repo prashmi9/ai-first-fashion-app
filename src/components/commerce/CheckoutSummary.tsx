@@ -14,7 +14,7 @@ interface OrderConfirmationData {
 }
 
 export const CheckoutSummary: React.FC = () => {
-  const { state, clearCart } = useApp();
+  const { state, clearCart, setOrderConfirmed } = useApp();
   const [promoCode, setPromoCode] = useState('');
   const [appliedPromo, setAppliedPromo] = useState<string | null>(null);
   const [paymentMethod, setPaymentMethod] = useState('Visa (**** **** 4242)');
@@ -57,6 +57,7 @@ export const CheckoutSummary: React.FC = () => {
         });
 
         clearCart();
+        setOrderConfirmed(true);
       }
     } catch (err) {
       console.error(err);
@@ -118,7 +119,7 @@ export const CheckoutSummary: React.FC = () => {
         </>
       ) : (
         <>
-          <h3 className="checkout-title">Secure Styling Checkout</h3>
+          <h3 className="checkout-title">Secure Checkout</h3>
 
           {/* Cart Summary overview */}
           <div className="checkout-items">
