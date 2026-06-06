@@ -22,7 +22,7 @@ const initialState: AppState = {
         content: `Welcome to LUXE, your personal AI Fashion Stylist. I've analyzed your profile and sizes. Are you styling for an upcoming conference trip (like Finland), shopping for a warm getaway, or looking to build a modular outfit? Let me know!`,
         timestamp: new Date(),
         suggestedActions: [
-          { id: 'sa-1', label: 'Trip to Finland', prompt: 'I need styling for a summer trip to Finland.' },
+          { id: 'sa-1', label: 'Trip to Finland', prompt: 'Help me put together a summer wardrobe for my trip to Finland.' },
           { id: 'sa-2', label: 'Spain Holiday', prompt: 'Show me beach holiday items for Spain.' },
           { id: 'sa-3', label: 'Modular Outfit Builder', prompt: 'Help me build an outfit.' },
           { id: 'sa-4', label: 'Track Recent Orders', prompt: 'Show my orders' }
@@ -31,7 +31,7 @@ const initialState: AppState = {
     ],
     isProcessing: false,
     suggestedActions: [
-      { id: 'sa-1', label: 'Trip to Finland', prompt: 'I need styling for a summer trip to Finland.' },
+      { id: 'sa-1', label: 'Trip to Finland', prompt: 'Help me put together a summer wardrobe for my trip to Finland.' },
       { id: 'sa-2', label: 'Spain Holiday', prompt: 'Show me beach holiday items for Spain.' },
       { id: 'sa-3', label: 'Modular Outfit Builder', prompt: 'Help me build an outfit.' },
       { id: 'sa-4', label: 'Track Recent Orders', prompt: 'Show my orders' }

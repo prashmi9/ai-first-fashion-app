@@ -56,7 +56,7 @@ export const MainStage: React.FC<MainStageProps> = ({
             <div className="qs-chips">
               <button
                 className="qs-chip glass"
-                onClick={() => onSuggestionClick?.('I need styling for a summer trip to Finland.')}
+                onClick={() => onSuggestionClick?.('Help me put together a summer wardrobe for my trip to Finland.')}
               >
                 "Style a summer trip to Finland"
               </button>

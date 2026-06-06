@@ -26,18 +26,11 @@ export class ContextEngine {
   public static updateFromIntent(intentResult: IntentResult): EnrichedContext {
     this.context.intent = intentResult.intent;
 
-    if (intentResult.location) {
-      this.context.activeLocation = intentResult.location;
-    }
-    if (intentResult.season) {
-      this.context.activeSeason = intentResult.season;
-    }
-    if (intentResult.occasion) {
-      this.context.activeOccasion = intentResult.occasion;
-    }
-    if (intentResult.budget) {
-      this.context.activeBudget = intentResult.budget;
-    }
+    // Update context properties, clearing them if not present in the new intent
+    this.context.activeLocation = intentResult.location || undefined;
+    this.context.activeSeason = intentResult.season || undefined;
+    this.context.activeOccasion = intentResult.occasion || undefined;
+    this.context.activeBudget = intentResult.budget || undefined;
 
     // Proactively align preferences if brand or keywords represent favorites
     if (intentResult.brand && !this.context.preferences.favoriteBrands.includes(intentResult.brand)) {

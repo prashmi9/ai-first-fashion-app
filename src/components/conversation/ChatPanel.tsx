@@ -42,9 +42,9 @@ export const ChatPanel: React.FC = () => {
       setInputText('');
       // Simulated spoken input
       setTimeout(() => {
-        setTranscript('I need outfits for my trip to Finland...');
-        setInputText('I need outfits for my trip to Finland...');
-      }, 1500);
+        setTranscript('What should I pack for Finland in summer?');
+        setInputText('What should I pack for Finland in summer?');
+      }, 3000);
     }
   };
 
@@ -62,7 +62,7 @@ export const ChatPanel: React.FC = () => {
     dispatch({
       type: 'SET_SUGGESTIONS',
       payload: [
-        { id: 'sa-1', label: 'Trip to Finland', prompt: 'I need outfits for a winter trip to Finland.' },
+        { id: 'sa-1', label: 'Trip to Finland', prompt: 'Help me put together a summer wardrobe for my trip to Finland.' },
         { id: 'sa-2', label: 'Trip to Norway', prompt: 'I need outfits for a winter trip to Norway.' },
         { id: 'sa-3', label: 'Spain Holiday', prompt: 'Show me beach holiday items for Spain.' },
         { id: 'sa-4', label: 'Modular Outfit Builder', prompt: 'Help me build an outfit.' },
@@ -123,6 +123,7 @@ export const ChatPanel: React.FC = () => {
               onChange={(e) => setInputText(e.target.value)}
               disabled={state.conversation.isProcessing}
               className="chat-input-field"
+              autoComplete="off"
             />
             
             <button

@@ -102,7 +102,7 @@ export class LLMOrchestrator {
 
     if (intent === 'greet') {
       actions.push(
-        { id: 'sa-1', label: '✈️ Summer trip to Finland', prompt: 'I need clothes for a business trip to Finland.' },
+        { id: 'sa-1', label: '✈️ Summer trip to Finland', prompt: 'Help me put together a summer wardrobe for my trip to Finland.' },
         { id: 'sa-2', label: '✈️ Winter trip to Norway', prompt: 'I need clothes for a winter trip to Norway.' },
         { id: 'sa-3', label: '☀️ Holiday in Spain', prompt: 'Show me beach wear for a Spain holiday.' },
         { id: 'sa-4', label: '🛍️ Current Promotions', prompt: 'What promotional discount campaigns are active today?' },
