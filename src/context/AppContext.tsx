@@ -23,18 +23,18 @@ const initialState: AppState = {
         timestamp: new Date(),
         suggestedActions: [
           { id: 'sa-1', label: 'Trip to Finland', prompt: 'Help me put together a summer wardrobe for my trip to Finland.' },
-          { id: 'sa-2', label: 'Spain Holiday', prompt: 'Show me beach holiday items for Spain.' },
-          { id: 'sa-3', label: 'Modular Outfit Builder', prompt: 'Help me build an outfit.' },
-          { id: 'sa-4', label: 'Track Recent Orders', prompt: 'Show my orders' }
+          { id: 'sa-2', label: 'Modular Outfit Builder', prompt: 'Help me build an outfit.' },
+          { id: 'sa-3', label: 'Track Recent Orders', prompt: 'Show my orders' },
+          { id: 'sa-4', label: 'Spain Holiday', prompt: 'Show me beach holiday items for Spain.' },
         ]
       }
     ],
     isProcessing: false,
     suggestedActions: [
       { id: 'sa-1', label: 'Trip to Finland', prompt: 'Help me put together a summer wardrobe for my trip to Finland.' },
-      { id: 'sa-2', label: 'Spain Holiday', prompt: 'Show me beach holiday items for Spain.' },
-      { id: 'sa-3', label: 'Modular Outfit Builder', prompt: 'Help me build an outfit.' },
-      { id: 'sa-4', label: 'Track Recent Orders', prompt: 'Show my orders' }
+      { id: 'sa-2', label: 'Modular Outfit Builder', prompt: 'Help me build an outfit.' },
+      { id: 'sa-3', label: 'Track Recent Orders', prompt: 'Show my orders' },
+      { id: 'sa-4', label: 'Spain Holiday', prompt: 'Show me beach holiday items for Spain.' },
     ]
   },
   cart: [],
