@@ -632,12 +632,12 @@ export const products: Product[] = [
     tags: ['cashmere', 'soft', 'cozy', 'winter-essential']
   },
   {
-    id: 'acc-2',
-    name: 'Leather Weekend Duffle',
+    id: 'acc-3',
+    name: 'Sun Hat with Wide Brim',
     brand: 'Maison Laurent',
     category: 'Accessories',
-    subcategory: 'Bags',
-    price: 260.00,
+    subcategory: 'hats',
+    price: 160.00,
     currency: '€',
     sizes: [
       { label: 'One Size', value: 'os', inStock: true }
@@ -645,16 +645,43 @@ export const products: Product[] = [
     colors: [
       { name: 'Vintage Mahogany', hex: '#451a03' }
     ],
-    images: ['/src/assets/products-img/duffle-bag.jpeg'],
-    description: 'Premium heavy leather duffle bag with double carry handles and an adjustable shoulder strap. Spacious canvas-lined interior.',
-    material: '100% Full-grain Leather, Cotton lining',
-    seasons: ['spring', 'summer', 'autumn', 'winter'],
+    images: ['/src/assets/products-img/sun-hat.webp'],
+    description: 'Sun hat with a wide brim for maximum sun protection.',
+    material: '100% Straw',
+    seasons: [ 'summer',],
     occasions: ['holiday', 'casual'],
     gender: 'unisex',
     rating: 4.9,
     reviewCount: 41,
     inStock: true,
-    tags: ['travel', 'duffle', 'premium-leather'],
+    tags: ['travel', 'hats', 'straw'],
     isNew: true
-  }
+  },
+  {
+    id: 'acc-1',
+    name: 'Ribbed Cashmere Scarf',
+    brand: 'Velvet & Stone',
+    category: 'Accessories',
+    subcategory: 'Scarves',
+    price: 75.00,
+    currency: '€',
+    sizes: [
+      { label: 'One Size', value: 'os', inStock: true }
+    ],
+    colors: [
+      { name: 'Oatmeal', hex: '#e2d6c5' },
+      { name: 'Burgundy', hex: '#7f1d1d' },
+      { name: 'Charcoal', hex: '#334155' }
+    ],
+    images: ['/src/assets/products-img/cashmere-scarf.jpeg'],
+    description: 'Generously sized, ribbed scarf knit from ultra-soft Mongolian cashmere. Adds perfect texture and cozy comfort.',
+    material: '100% Cashmere',
+    seasons: ['winter', 'autumn'],
+    occasions: ['casual', 'outdoor', 'holiday'],
+    gender: 'unisex',
+    rating: 4.7,
+    reviewCount: 83,
+    inStock: true,
+    tags: ['cashmere', 'soft', 'cozy', 'winter-essential']
+  },
 ];
